@@ -20,9 +20,10 @@ class GameInstance {
     init() {
         self.gameInstanceLevel = 0
         self.timerRunning = false
-        var gameOverFlag =    false
+        var gameOverFlag = false
     }
     
+    // save the curent level
     func setGameInstanceLevel(newLevel: Int) {
         self.gameInstanceLevel = newLevel
         
@@ -33,7 +34,6 @@ class GameInstance {
         
         /// check current level  -> get time values
         var result = ""
-        
         switch labelName {
         case "t0seconds":
             result = "t0"
