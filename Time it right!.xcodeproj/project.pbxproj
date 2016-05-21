@@ -7,16 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2B51481CEB40B200D608AB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2B51411CEB3FEA00D608AB /* Charts.framework */; };
+		5B2B51491CEB40B200D608AB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2B51411CEB3FEA00D608AB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514D1CEB433300D608AB /* gameInstance.swift */; };
+		5B2B51501CEB55D700D608AB /* gameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514F1CEB55D700D608AB /* gameData.swift */; };
 		5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */; };
 		5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */; };
 		5BC2B3101CEA04DF002FD33A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B30E1CEA04DF002FD33A /* Main.storyboard */; };
 		5BC2B3131CEA04DF002FD33A /* Time_it_right_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B3111CEA04DF002FD33A /* Time_it_right_.xcdatamodeld */; };
 		5BC2B3151CEA04DF002FD33A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B3141CEA04DF002FD33A /* Assets.xcassets */; };
 		5BC2B3181CEA04DF002FD33A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B3161CEA04DF002FD33A /* LaunchScreen.storyboard */; };
+		5BFA61591CECDA820024C617 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA61581CECDA820024C617 /* GameViewController.swift */; };
+		5BFA615B1CED037F0024C617 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA615A1CED037F0024C617 /* ScoreViewController.swift */; };
 		5BFF71FF1CEA4BDA004B237E /* style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF71FE1CEA4BDA004B237E /* style.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5B2B51401CEB3FEA00D608AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		5B2B51421CEB3FEA00D608AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		5B2B51441CEB3FEA00D608AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		5B2B51461CEB3FEA00D608AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		5B2B514A1CEB40B200D608AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5B2B514C1CEB40B200D608AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5B2B51491CEB40B200D608AB /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
+		5B2B514D1CEB433300D608AB /* gameInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameInstance.swift; sourceTree = "<group>"; };
+		5B2B514F1CEB55D700D608AB /* gameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData.swift; sourceTree = "<group>"; };
 		5BC2B3071CEA04DF002FD33A /* Time it right!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time it right!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +86,8 @@
 		5BC2B3141CEA04DF002FD33A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC2B3171CEA04DF002FD33A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC2B3191CEA04DF002FD33A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFA61581CECDA820024C617 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		5BFA615A1CED037F0024C617 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		5BFF71FE1CEA4BDA004B237E /* style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,12 +96,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2B51481CEB40B200D608AB /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2B513A1CEB3FEA00D608AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B2B51411CEB3FEA00D608AB /* Charts.framework */,
+				5B2B51431CEB3FEA00D608AB /* Charts.framework */,
+				5B2B51451CEB3FEA00D608AB /* Charts.framework */,
+				5B2B51471CEB3FEA00D608AB /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5BC2B2FE1CEA04DF002FD33A = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +133,10 @@
 		5BC2B3091CEA04DF002FD33A /* Time it right! */ = {
 			isa = PBXGroup;
 			children = (
-				5BFF71FD1CEA4898004B237E /* lib */,
 				5BC2B3211CEA0535002FD33A /* Controller */,
 				5BC2B3201CEA052C002FD33A /* View */,
 				5BC2B31F1CEA0526002FD33A /* Model */,
+				5BFF71FD1CEA4898004B237E /* lib */,
 				5BC2B3141CEA04DF002FD33A /* Assets.xcassets */,
 				5BC2B3191CEA04DF002FD33A /* Info.plist */,
 				5BC2B3111CEA04DF002FD33A /* Time_it_right_.xcdatamodeld */,
@@ -73,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */,
+				5B2B514F1CEB55D700D608AB /* gameData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -80,10 +156,12 @@
 		5BC2B3201CEA052C002FD33A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BC2B3161CEA04DF002FD33A /* LaunchScreen.storyboard */,
 				5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */,
 				5BC2B30E1CEA04DF002FD33A /* Main.storyboard */,
-				5BC2B3161CEA04DF002FD33A /* LaunchScreen.storyboard */,
 				5BFF71FE1CEA4BDA004B237E /* style.swift */,
+				5BFA61581CECDA820024C617 /* GameViewController.swift */,
+				5BFA615A1CED037F0024C617 /* ScoreViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -91,6 +169,7 @@
 		5BC2B3211CEA0535002FD33A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5B2B514D1CEB433300D608AB /* gameInstance.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -98,6 +177,7 @@
 		5BFF71FD1CEA4898004B237E /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -112,10 +192,12 @@
 				5BC2B3031CEA04DF002FD33A /* Sources */,
 				5BC2B3041CEA04DF002FD33A /* Frameworks */,
 				5BC2B3051CEA04DF002FD33A /* Resources */,
+				5B2B514C1CEB40B200D608AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5B2B514B1CEB40B200D608AB /* PBXTargetDependency */,
 			);
 			name = "Time it right!";
 			productName = "Time it right!";
@@ -149,12 +231,49 @@
 			mainGroup = 5BC2B2FE1CEA04DF002FD33A;
 			productRefGroup = 5BC2B3081CEA04DF002FD33A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5B2B513A1CEB3FEA00D608AB /* Products */;
+					ProjectRef = 5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5BC2B3061CEA04DF002FD33A /* Time it right! */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5B2B51411CEB3FEA00D608AB /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 5B2B51401CEB3FEA00D608AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B2B51431CEB3FEA00D608AB /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 5B2B51421CEB3FEA00D608AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B2B51451CEB3FEA00D608AB /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 5B2B51441CEB3FEA00D608AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B2B51471CEB3FEA00D608AB /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 5B2B51461CEB3FEA00D608AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5BC2B3051CEA04DF002FD33A /* Resources */ = {
@@ -174,14 +293,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */,
 				5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */,
+				5BFA61591CECDA820024C617 /* GameViewController.swift in Sources */,
 				5BC2B3131CEA04DF002FD33A /* Time_it_right_.xcdatamodeld in Sources */,
 				5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */,
+				5B2B51501CEB55D700D608AB /* gameData.swift in Sources */,
 				5BFF71FF1CEA4BDA004B237E /* style.swift in Sources */,
+				5BFA615B1CED037F0024C617 /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B2B514B1CEB40B200D608AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 5B2B514A1CEB40B200D608AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5BC2B30E1CEA04DF002FD33A /* Main.storyboard */ = {
@@ -292,7 +423,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Time it right!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.martincimerman.Time-it-right-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,7 +436,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Time it right!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.martincimerman.Time-it-right-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
