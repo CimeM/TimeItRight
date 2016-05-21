@@ -13,13 +13,6 @@ import UIKit
 
 
 
-//
-////hallOfTimeButton.layer.borderColor = UIColor.whiteColor().CGColor
-//class TItNavButton :  {
-//    var borderColor  // = UIColor.whiteColor().CGColor
-//    
-//}
-
 class TINavButton : UIButton  {
     
     required init?(coder aDecoder : NSCoder){

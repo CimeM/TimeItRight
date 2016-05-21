@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     @IBOutlet var scoreLabel: UILabel!
     
-    @IBOutlet var t0SecondsLabel: UILabel!
+    @IBOutlet var t0secondsLabel: UILabel!
     
     @IBOutlet var t0milisecondsLabel: UILabel!
     
@@ -20,42 +20,57 @@ class ViewController: UIViewController {
     
     @IBOutlet var t1milisecondsLabel: UILabel!
     
+    @IBOutlet var t1colomLabel: UILabel!
+    
     @IBOutlet var t2secondsLabel: UILabel!
     
     @IBOutlet var t2milisecondsLabel: UILabel!
     
+    @IBOutlet var t2colomLabel: UILabel!
+    
+    var currentGame = GameInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.currentGame = GameInstance()
-        //self.updateLables()
+        self.updateLables()
+        
+        _ = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameViewController.updatet0Lables), userInfo: nil, repeats: true)
+        
+        
     }
 
     //is called every millisecond
     func updatet0Lables () {
         // load data into labels (timers)
-        //t0secondsLabel.text = currentGame.getTimeString("t0seconds")
-        //t0milisecondsLabel.text = currentGame.getTimeString("t0miliseconds")
+        t0secondsLabel.text = currentGame.getTimeString("t0seconds")
+        t0milisecondsLabel.text = currentGame.getTimeString("t0miliseconds")
     }
+    
     
     func updateLables() {
         
         // TODO remove coloms
         
         // load data into labels (timers)
-        //        t0secondsLabel.text = "fs"//  currentGame.getTimeString("t0seconds")
-        //        t0milisecondsLabel.text = "fs"// currentGame.getTimeString("t0miliseconds")
+        self.updatet0Lables()
         
         // load data into labels (timers)
-        //        t1secondsLabel.text = "fs"// currentGame.getTimeString("t1seconds")
-        //        t1milisecondsLabel.text =  "fs"//currentGame.getTimeString("t1miliseconds")
+        t1secondsLabel.text =  currentGame.getTimeString("t1seconds")
+        t1milisecondsLabel.text =  currentGame.getTimeString("t1miliseconds")
+        if t1milisecondsLabel.text == "" {
+            t1colomLabel.text = ""
+        }
         
         // load data into labels (timers)
-        //t2secondsLabel.text =  "fs"//currentGame.getTimeString("t2seconds")
-        //t2milisecondsLabel.text = "fs"//currentGame.getTimeString("t2miliseconds")
+        t2secondsLabel.text = currentGame.getTimeString("t2seconds")
+        t2milisecondsLabel.text = currentGame.getTimeString("t2miliseconds")
+        if t2milisecondsLabel.text == "" {
+            t2colomLabel.text = ""
+        }
         
         //show current score on the score label
-        //scoreLabel.text = "lvl \(currentGame.getCurrentLevel()) \(currentGame.getCurrentScore())"
+        scoreLabel.text = "lvl \(currentGame.getCurrentLevel()) \(currentGame.getCurrentScore())"
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,16 +80,15 @@ class ViewController: UIViewController {
     
     @IBAction func gameButtonAction(sender: UIButton) {
         
-        //currentGame.timeButtonPressed()
+        let gameContinues = currentGame.timeButtonPressed()
         
-        // load data into labels (timers)
-        //t1secondsLabel.text = currentGame.getTimeString("t1seconds")
-        //t1milisecondsLabel.text = currentGame.getTimeString("t1miliseconds")
-        
-        // load data into labels (timers)
-        //t2secondsLabel.text = currentGame.getTimeString("t2seconds")
-        //t2milisecondsLabel.text = currentGame.getTimeString("t2miliseconds")
-        
+        if gameContinues == false {
+            let scorevc = self.storyboard?.instantiateViewControllerWithIdentifier("idScoreViewController") as! ScoreViewController
+            self.presentViewController(scorevc, animated: true, completion: nil)
+        }
+        else {
+            self.updateLables()
+        }
     }
 
     /*

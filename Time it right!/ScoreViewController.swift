@@ -10,10 +10,52 @@ import UIKit
 
 class ScoreViewController: UIViewController {
 
+    
+    @IBOutlet var topScoreLabel: UILabel!
+    
+    @IBOutlet var messageLabel: UILabel!
+
+    @IBOutlet var levelLabel: UILabel!
+    
+    @IBOutlet var currentScoreLabel: UILabel!
+    
+    @IBOutlet var totalScoreLabel: UILabel!
+    
+    @IBOutlet var contiueButton: TINavButton!
+    
+    var nextLevelTimer = 5
+    
+    var timer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //load total score 
+        var gameData = GameData()
+        gameData.loadGameInstanceData()
+        topScoreLabel.text = "lvl \(gameData.gameInstanceLevel) \(gameData.gameSumData)"
+        
+        levelLabel.text = "Level \(gameData.gameInstanceLevel)"
+        
+        currentScoreLabel.text = "\(gameData.gameSumData)"
+        totalScoreLabel.text = "\(gameData.gameSumData)"
+        
+        // hide next level button
+        if gameData.gameOverFlag {
+            contiueButton.enabled = false
+        }
+        
+        //if there is no levels left, disable the button
+        if gameData.levelTimes.count == gameData.gameInstanceLevel {
+            contiueButton.enabled = false
+        }
+        else {
+            // start the timer for 'continue' button
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(self.buttonTimeout), userInfo: nil, repeats: true)
+        }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +63,37 @@ class ScoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func menuButton(sender: AnyObject) {
+        
+        // TODO end game and save data
+        let menuvc = self.storyboard?.instantiateViewControllerWithIdentifier("idMenuViewController") as! MenuViewController
+        self.presentViewController(menuvc, animated: true, completion: nil)
+    }
 
+    @IBAction func continueButton(sender: AnyObject) {
+        
+        self.transitionToGame()
+        
+    }
+    
+    func transitionToGame() {
+        // stop timer
+        timer.invalidate()
+        
+        // TODO end game and save data
+        let gamevc = self.storyboard?.instantiateViewControllerWithIdentifier("idGameViewController") as! GameViewController
+        
+        self.presentViewController(gamevc, animated: true, completion: nil)
+    }
+
+    func buttonTimeout() {
+        nextLevelTimer-=1
+        contiueButton.setTitle("Continue \(nextLevelTimer)s", forState: .Normal)
+        
+        if nextLevelTimer == 0 {
+            transitionToGame()
+        }
+    }
     /*
     // MARK: - Navigation
 
