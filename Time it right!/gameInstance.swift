@@ -45,7 +45,7 @@ class GameInstance {
         
         timerRunning = false
         timer.invalidate()
-        gameData.saveGameInstanceData(gameOverFlag, gameSumScoreData: gameInstanceSumScore, gameInstanceLevel : gameInstanceLevel)
+        gameData.saveGameInstanceData(gameOverFlag, gameLevelSumScoreData: gameInstanceSumScore, gameInstanceLevel : gameInstanceLevel)
 
     }
     
@@ -120,13 +120,14 @@ class GameInstance {
     // save the curent level
     func increaseGameInstanceLevel() {
         
-        self.gameInstanceLevel = gameData.loadGameInstanceLevel()
+        gameData.loadGameInstanceLevel()
+        self.gameInstanceLevel = gameData.gameInstanceLevel
         // load levels from NS
         self.gameInstanceLevel = gameData.gameInstanceLevel
         // increase by 1
         self.gameInstanceLevel += 1
         //load level data
-        self.levelData = gameData.levelTimes[self.gameInstanceLevel]
+        self.levelData = gameData.levelTimes[self.gameInstanceLevel-1]
         //save level to NS
         gameData.saveGameInstanceLevel(self.gameInstanceLevel)
     }

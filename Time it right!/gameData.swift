@@ -15,16 +15,34 @@ class GameData {
                      [1000, 500, 200],
                      [1500, 1200, 1000, 500],
                      [1500, 1200, 1000, 500, 200]]
-    
     var monthlyHighScore     = [0 ,0 ,0]
     var dayliHighScore       = [0 ,0 ,0]
     var weeklyHighscore      = [0 ,0 ,0]
     var latestScores = [Int]() // saved last 7 scores
     var gameInstanceLevel = 0
-    var gameSumData = 0
+    var gameLevelSumScoreData = 0 // sum of level gains
+    var gameInstanceSumScoreData = 0 //sum of all game levels -> game instance
     var gameOverFlag = false
     
+    
+    /**
+     Saves highscore data to NSUser Space
+     */
     func saveHighscoresData (monthlyHighScore: [Int], dayliHighScore : [Int], weeklyHighscore : [Int], latestScores: [Int]) {
+        
+        // TODO check for dates and scores -> update or dont update
+        if gameLevelSumScoreData > 0 {
+            
+            self.latestScores.append(gameInstanceSumScoreData)
+            // ensure max 7 data points are saved. remove the oldest ones first
+            while self.latestScores.count > 7 {
+                self.latestScores.removeAtIndex(0)
+            }
+        }
+        
+        // TODO append latest scores
+        
+        
         NSUserDefaults.standardUserDefaults().setObject(monthlyHighScore, forKey: "HighscoreOfTheMonth")
         NSUserDefaults.standardUserDefaults().setObject(weeklyHighscore, forKey: "HighscoreOfTheWeek")
         NSUserDefaults.standardUserDefaults().setObject(dayliHighScore, forKey: "HighscoreOfTheDay")
@@ -32,9 +50,36 @@ class GameData {
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func saveGameInstanceData(gameOverFlag: Bool, gameSumScoreData : Int,  gameInstanceLevel : Int){
+    
+    /**
+     Loads highscore data to NSUser Space
+     variables: monthlyHighScore : [Int], dayliHighScore : [Int], weeklyHighscore : [Int]
+     */
+    func loadHighscores (){
+        //monthly highscore
+        self.monthlyHighScore = loadIntArrFormNSUserDefaults("HighscoreOfTheMonth")
         
-        NSUserDefaults.standardUserDefaults().setObject(gameSumScoreData, forKey: "GameSumScoreData")
+        // weekly highscore
+        self.weeklyHighscore = loadIntArrFormNSUserDefaults("HighscoreOfTheWeek")
+        
+        //dayly highscore
+        self.dayliHighScore = loadIntArrFormNSUserDefaults("HighscoreOfTheDay")
+        
+        //latestScores
+//        if NSUserDefaults.standardUserDefaults().objectForKey("LatestScores") != nil {
+//            self.latestScores = (NSUserDefaults.standardUserDefaults().objectForKey("LatestScores") as? [Int])!
+//        }
+    }
+    
+
+    func saveGameInstanceData(gameOverFlag: Bool, gameLevelSumScoreData : Int,  gameInstanceLevel : Int){
+        
+        //load game instance - game sum score - this is not game level sum score
+        self.gameInstanceSumScoreData = loadIntFormNSUserDefaults("GameInstanceSumScoreData")
+        
+        NSUserDefaults.standardUserDefaults().setObject(self.gameInstanceSumScoreData+gameLevelSumScoreData, forKey: "GameInstanceSumScoreData")
+        
+        NSUserDefaults.standardUserDefaults().setObject(gameLevelSumScoreData, forKey: "GameLevelSumScoreData")
         NSUserDefaults.standardUserDefaults().setObject(gameInstanceLevel, forKey: "GameInstanceLevel")
         NSUserDefaults.standardUserDefaults().setObject(gameOverFlag, forKey: "GameOverFlag")
         NSUserDefaults.standardUserDefaults().synchronize()
@@ -43,62 +88,94 @@ class GameData {
     
     func loadGameInstanceData() {
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("GameOverFlag") != nil {
-            self.gameOverFlag = (NSUserDefaults.standardUserDefaults().objectForKey("GameOverFlag") as? Bool)!
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("GameSumScoreData") != nil {
-            self.gameSumData = (NSUserDefaults.standardUserDefaults().objectForKey("GameSumScoreData") as? Int)!
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("GameInstanceLevel") != nil {
-            self.gameInstanceLevel = (NSUserDefaults.standardUserDefaults().objectForKey("GameInstanceLevel") as? Int)!
-        }
+        self.gameInstanceSumScoreData = loadIntFormNSUserDefaults("GameInstanceSumScoreData")
+        // TODO error handler  - at return nil
+        self.gameOverFlag = loadBoolNSUserDefaults("GameOverFlag")!
+        self.gameLevelSumScoreData = loadIntFormNSUserDefaults("GameLevelSumScoreData")
         
-    }
-    
-    // loads the data and saves it to NSUserDefaults
-    func loadHighscores (){
-        //monthly highscore
-        if NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheMonth") != nil {
-            self.monthlyHighScore = (NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheMonth") as? [Int])!
-        }
-        // weekly highscore
-        if NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheWeek") != nil {
-            self.weeklyHighscore = (NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheWeek") as? [Int])!
-        }
-        //dayly highscore
-        if NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheDay") != nil {
-            self.dayliHighScore = (NSUserDefaults.standardUserDefaults().objectForKey("HighscoreOfTheDay") as? [Int])!
-        }
-        //latestScores
-//        if NSUserDefaults.standardUserDefaults().objectForKey("LatestScores") != nil {
-//            self.latestScores = (NSUserDefaults.standardUserDefaults().objectForKey("LatestScores") as? [Int])!
-//        }
-    }
-    
-    
-    // to delete
-    func loadGameInstanceLevel() -> Int {
-        if NSUserDefaults.standardUserDefaults().objectForKey("GameInstanceLevel") != nil {
-            self.gameInstanceLevel = (NSUserDefaults.standardUserDefaults().objectForKey("GameInstanceLevel") as? Int)!
-        }
-        return self.gameInstanceLevel
-    }
-    func saveGameInstanceLevel(newLvel : Int) {
-        NSUserDefaults.standardUserDefaults().setObject(newLvel, forKey: "GameInstanceLevel")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        loadGameInstanceLevel()
 
     }
     
+       
+    /**
+     Reset all game instance scores
+     This should happen every time user start a new game.
+     */
+    
     func resetInstanceData () {
+        
         let zero = 0
-        
-        NSUserDefaults.standardUserDefaults().setObject(zero, forKey: "GameInstanceLevel")
-        
-        NSUserDefaults.standardUserDefaults().setObject(zero, forKey: "GameSumScoreData")
-        
+        NSUserDefaults.standardUserDefaults().setObject(zero, forKey: "GameInstanceSumScoreData")
+        saveGameInstanceLevel(zero)
+        NSUserDefaults.standardUserDefaults().setObject(zero, forKey: "GameLevelSumScoreData")
         NSUserDefaults.standardUserDefaults().setObject(false, forKey: "GameOverFlag")
         
         NSUserDefaults.standardUserDefaults().synchronize()
     }
+
     
+    /**
+     Load game Instance level saved in NSUser defaults
+     */
+    func loadGameInstanceLevel() {
+        self.gameInstanceLevel = loadIntFormNSUserDefaults("GameInstanceLevel")
+    }
+    
+    /**
+     Save game Instance level to NSUser defaults
+     */
+    func saveGameInstanceLevel(newLvel : Int) {
+        NSUserDefaults.standardUserDefaults().setObject(newLvel, forKey: "GameInstanceLevel")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    
+    /**
+     Load game Instance Sum Score saved in NSUser defaults
+     */
+    func loadIntFormNSUserDefaults(key : String) -> Int {
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
+            return (NSUserDefaults.standardUserDefaults().objectForKey(key) as? Int)!
+        }
+        else {
+            print("Error handler - value not saved in NSUser Space. Replaced by 0")
+            return 0
+        }
+        
+    }
+    
+    /**
+     Load game Instance Sum Score saved in NSUser defaults
+     */
+    func loadIntArrFormNSUserDefaults(key : String) -> [Int] {
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
+            return (NSUserDefaults.standardUserDefaults().objectForKey(key) as? [Int])!
+        }
+        else {
+            print("Error handler - value not saved in NSUser Space. Replaced by [0]")
+            return [0]
+        }
+        
+    }
+    
+    /**
+     Load Bool values, saved in NSUser defaults
+     */
+    func loadBoolNSUserDefaults(key : String) -> Bool? {
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
+            return (NSUserDefaults.standardUserDefaults().objectForKey(key) as? Bool)!
+        }
+        else {
+            print("Error handler - value not saved in NSUser Space. Returned nil")
+            return false
+        }
+        
+    }
+    
+    
+
 }

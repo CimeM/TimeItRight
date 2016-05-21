@@ -33,12 +33,12 @@ class ScoreViewController: UIViewController {
         //load total score 
         var gameData = GameData()
         gameData.loadGameInstanceData()
-        topScoreLabel.text = "lvl \(gameData.gameInstanceLevel) \(gameData.gameSumData)"
+        topScoreLabel.text = "lvl \(gameData.gameInstanceLevel) \(gameData.gameLevelSumScoreData)"
         
         levelLabel.text = "Level \(gameData.gameInstanceLevel)"
         
-        currentScoreLabel.text = "\(gameData.gameSumData)"
-        totalScoreLabel.text = "\(gameData.gameSumData)"
+        currentScoreLabel.text = "\(gameData.gameLevelSumScoreData)"
+        totalScoreLabel.text = "\(gameData.gameInstanceSumScoreData)"
         
         // hide next level button
         if gameData.gameOverFlag {
