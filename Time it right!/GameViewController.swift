@@ -28,11 +28,12 @@ class GameViewController: UIViewController {
     
     @IBOutlet var t2colomLabel: UILabel!
     
-    var currentGame = GameInstance()
+    var gameInstance = GameInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.currentGame = GameInstance()
+        
+        gameInstance.gameBegin()
         self.updateLables()
         
         _ = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameViewController.updatet0Lables), userInfo: nil, repeats: true)
@@ -43,8 +44,8 @@ class GameViewController: UIViewController {
     //is called every millisecond
     func updatet0Lables () {
         // load data into labels (timers)
-        t0secondsLabel.text = currentGame.getTimeString("t0seconds")
-        t0milisecondsLabel.text = currentGame.getTimeString("t0miliseconds")
+        t0secondsLabel.text = gameInstance.getTimeString("t0seconds")
+        t0milisecondsLabel.text = gameInstance.getTimeString("t0miliseconds")
     }
     
     
@@ -56,21 +57,21 @@ class GameViewController: UIViewController {
         self.updatet0Lables()
         
         // load data into labels (timers)
-        t1secondsLabel.text =  currentGame.getTimeString("t1seconds")
-        t1milisecondsLabel.text =  currentGame.getTimeString("t1miliseconds")
+        t1secondsLabel.text =  gameInstance.getTimeString("t1seconds")
+        t1milisecondsLabel.text =  gameInstance.getTimeString("t1miliseconds")
         if t1milisecondsLabel.text == "" {
             t1colomLabel.text = ""
         }
         
         // load data into labels (timers)
-        t2secondsLabel.text = currentGame.getTimeString("t2seconds")
-        t2milisecondsLabel.text = currentGame.getTimeString("t2miliseconds")
+        t2secondsLabel.text = gameInstance.getTimeString("t2seconds")
+        t2milisecondsLabel.text = gameInstance.getTimeString("t2miliseconds")
         if t2milisecondsLabel.text == "" {
             t2colomLabel.text = ""
         }
         
         //show current score on the score label
-        scoreLabel.text = "lvl \(currentGame.getCurrentLevel()) \(currentGame.getCurrentScore())"
+        scoreLabel.text = "lvl \(gameInstance.getCurrentLevel()) \(gameInstance.getCurrentScore())"
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +81,7 @@ class GameViewController: UIViewController {
     
     @IBAction func gameButtonAction(sender: UIButton) {
         
-        let gameContinues = currentGame.timeButtonPressed()
+        let gameContinues = gameInstance.timeButtonPressed()
         
         if gameContinues == false {
             let scorevc = self.storyboard?.instantiateViewControllerWithIdentifier("idScoreViewController") as! ScoreViewController

@@ -27,32 +27,41 @@ class ScoreViewController: UIViewController {
     
     var timer = NSTimer()
     
+    var gameInstance = GameInstance()
+    
+    let gameData = GameData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //load total score 
-        var gameData = GameData()
+        
         gameData.loadGameInstanceData()
-        topScoreLabel.text = "lvl \(gameData.gameInstanceLevel) \(gameData.gameLevelSumScoreData)"
+        topScoreLabel.text = "lvl " + "\(gameData.gameInstanceLevel) "
+                                    + "\(gameData.gameLevelSumScoreData)"
         
         levelLabel.text = "Level \(gameData.gameInstanceLevel)"
         
         currentScoreLabel.text = "\(gameData.gameLevelSumScoreData)"
         totalScoreLabel.text = "\(gameData.gameInstanceSumScoreData)"
         
-        // hide next level button
+        // disable next level button
+        print("reading: \(gameData.gameOverFlag)")
         if gameData.gameOverFlag {
             contiueButton.enabled = false
-        }
-        
-        //if there is no levels left, disable the button
-        if gameData.levelTimes.count == gameData.gameInstanceLevel {
-            contiueButton.enabled = false
+            contiueButton.alpha = 0.5
+            messageLabel.text = "Game Over!"
         }
         else {
-            // start the timer for 'continue' button
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(self.buttonTimeout), userInfo: nil, repeats: true)
+            //if there is no levels left, disable the button
+            if gameData.levelTimes.count == gameData.gameInstanceLevel {
+                contiueButton.enabled = false
+            }
+            else {
+                // start the timer for 'continue' button
+                timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(self.buttonTimeout), userInfo: nil, repeats: true)
+            }
         }
+        
         
         
         
@@ -65,9 +74,10 @@ class ScoreViewController: UIViewController {
     
     @IBAction func menuButton(sender: AnyObject) {
         
-        // TODO end game and save data
-        let menuvc = self.storyboard?.instantiateViewControllerWithIdentifier("idMenuViewController") as! MenuViewController
-        self.presentViewController(menuvc, animated: true, completion: nil)
+        gameInstance.gameCleanup()
+        
+        //transition to main menu
+        vieWcontrollerSegue("idMenuViewController")
     }
 
     @IBAction func continueButton(sender: AnyObject) {
@@ -80,10 +90,9 @@ class ScoreViewController: UIViewController {
         // stop timer
         timer.invalidate()
         
-        // TODO end game and save data
-        let gamevc = self.storyboard?.instantiateViewControllerWithIdentifier("idGameViewController") as! GameViewController
+        // show game ViewController
+        vieWcontrollerSegue("idGameViewController")
         
-        self.presentViewController(gamevc, animated: true, completion: nil)
     }
 
     func buttonTimeout() {
@@ -93,6 +102,25 @@ class ScoreViewController: UIViewController {
         if nextLevelTimer == 0 {
             transitionToGame()
         }
+    }
+    
+    /**
+     Transitions to View controller with corresponding id
+     */
+    func vieWcontrollerSegue (ViewControllerId: String) {
+        
+        
+        switch ViewControllerId {
+        case "idGameViewController":
+            let gameVC = self.storyboard?.instantiateViewControllerWithIdentifier(ViewControllerId) as! GameViewController
+            self.presentViewController(gameVC, animated: true, completion: nil)
+        case "idMenuViewController":
+            let menuVC = self.storyboard?.instantiateViewControllerWithIdentifier(ViewControllerId) as! MenuViewController
+            self.presentViewController(menuVC, animated: true, completion: nil)
+        default:
+            break
+        }
+        
     }
     /*
     // MARK: - Navigation

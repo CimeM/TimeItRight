@@ -36,16 +36,18 @@ class GameInstance {
         self.levelData = [0, 0, 0]
         
         // load level data
-        self.increaseGameInstanceLevel()
-        levelData = gameData.levelTimes[(self.gameInstanceLevel-1) ]
+//        self.increaseGameInstanceLevel()
+//        levelData = gameData.levelTimes[(self.gameInstanceLevel-1) ]
     }
     
-    // stop timer, save the score to NSUser and make a transition to scoreViewController
+    // stop timer, save the score to NSUser
     func gameOver (){
         
         timerRunning = false
         timer.invalidate()
-        gameData.saveGameInstanceData(gameOverFlag, gameLevelSumScoreData: gameInstanceSumScore, gameInstanceLevel : gameInstanceLevel)
+        gameData.saveGameLevelInstanceData(self.gameOverFlag,
+                                      gameLevelSumScoreData: gameInstanceSumScore,
+                                      gameInstanceLevel : gameInstanceLevel)
 
     }
     
@@ -59,8 +61,9 @@ class GameInstance {
         if levelData[0] < levelData[1]
         {
             self.gameOverFlag = true
+            print(self.gameOverFlag)
             gameOver()
-            return
+            //return
         }
         levelData[0] -= 1
     }
@@ -72,10 +75,14 @@ class GameInstance {
     func timeButtonPressed() -> Bool {
         
         // the timer stands still untill we begin and press the button for the 1st time
-        if timerRunning == false {
+        if timerRunning == false && self.gameOverFlag == false {
             
             timerRunning = true
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target:self, selector: #selector(self.counting), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
+                                                           target:self,
+                                                           selector: #selector(self.counting),
+                                                           userInfo: nil,
+                                                           repeats: true)
             return true
         }
         
@@ -130,6 +137,7 @@ class GameInstance {
         self.levelData = gameData.levelTimes[self.gameInstanceLevel-1]
         //save level to NS
         gameData.saveGameInstanceLevel(self.gameInstanceLevel)
+        print(self.gameInstanceLevel)
     }
     
     func getCurrentLevel() -> Int {
@@ -175,7 +183,9 @@ class GameInstance {
         // TODO if not defined fill empty string
     }
     
-    // converts miliseconds into seconds and remaining milliseconds
+    /** converts miliseconds for corresponding lables
+        milis: bool - returnes data for millisecond label otherwise for seconds label
+     */
     func timeConverter(miliseconds : Int, milis : Bool)-> String {
         
         var timeMilis: String
@@ -186,6 +196,7 @@ class GameInstance {
         }
         
         // formating timer text
+        //TODO cleanup + bugfix
         if miliseconds < 10 {
             timeSeconds = "00"
             timeMilis = "0\(miliseconds)"
@@ -233,6 +244,17 @@ class GameInstance {
         else {
             return timeSeconds
         }
+    }
+    
+    func gameBegin(){
+        self.increaseGameInstanceLevel()
+        levelData = gameData.levelTimes[(self.gameInstanceLevel-1) ]
+    }
+    
+    func gameCleanup () {
+        gameData.updateHighscoresInNSUser()
+        
+        //TODO add additional cleanup
     }
     
 }
