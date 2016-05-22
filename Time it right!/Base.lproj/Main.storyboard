@@ -32,13 +32,6 @@
                                     <segue destination="TaZ-e1-tdU" kind="show" id="qy1-cE-3l7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeitupLogo500" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Ya-BM8">
-                                <rect key="frame" x="231" y="28" width="137" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="9TM-mB-MDi"/>
-                                    <constraint firstAttribute="height" constant="128" id="KvW-pt-4nR"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzb-7C-auF" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
                                 <rect key="frame" x="149" y="384" width="300" height="50"/>
                                 <constraints>
@@ -75,6 +68,13 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Ya-BM8">
+                                <rect key="frame" x="231" y="61" width="137" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="9TM-mB-MDi"/>
+                                    <constraint firstAttribute="height" constant="128" id="KvW-pt-4nR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -82,7 +82,7 @@
                             <constraint firstItem="Nzb-7C-auF" firstAttribute="leading" secondItem="Ugi-vT-uXe" secondAttribute="leading" id="Ce3-yK-UZx"/>
                             <constraint firstItem="aMx-mL-Cdd" firstAttribute="top" secondItem="sUj-6h-ZWW" secondAttribute="bottom" constant="17" id="Eje-Em-EOe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sUj-6h-ZWW" secondAttribute="bottom" constant="300" id="G6H-7r-3z8"/>
-                            <constraint firstItem="Xou-Ya-BM8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="IZ2-i7-9Ph"/>
+                            <constraint firstItem="Xou-Ya-BM8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="IZ2-i7-9Ph"/>
                             <constraint firstItem="Xou-Ya-BM8" firstAttribute="centerX" secondItem="sUj-6h-ZWW" secondAttribute="centerX" id="Nr5-6m-wmF"/>
                             <constraint firstItem="Nzb-7C-auF" firstAttribute="top" secondItem="aMx-mL-Cdd" secondAttribute="bottom" constant="17" id="Sg2-kE-CTi"/>
                             <constraint firstItem="Nzb-7C-auF" firstAttribute="centerX" secondItem="Xou-Ya-BM8" secondAttribute="centerX" id="X3V-8J-3sn"/>
@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="196" y="1133"/>
         </scene>
-        <!--View Controller-->
+        <!--Hall Of Time View Controller-->
         <scene sceneID="bi6-WP-uVD">
             <objects>
-                <viewController id="BLx-CC-3rn" sceneMemberID="viewController">
+                <viewController id="BLx-CC-3rn" customClass="HallOfTimeViewController" customModule="Time_it_right_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jmM-WX-P3v"/>
                         <viewControllerLayoutGuide type="bottom" id="k7E-0k-aIR"/>
@@ -280,15 +280,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-FX-Ek1">
                                 <rect key="frame" x="274" y="20" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's best:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SB6-DU-Hxh">
-                                <rect key="frame" x="20" y="147" width="145" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="145" id="MVl-Tn-ciF"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -323,9 +314,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-8Q-fa3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-8Q-fa3" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="279" width="560" height="223"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="qDc-Mq-Xmj"/>
                                 </constraints>
@@ -357,10 +348,22 @@
                                 <state key="normal" title="Main Menu">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="menuButtonAction:" destination="BLx-CC-3rn" eventType="touchUpInside" id="Ouc-oc-plb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last plays:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXG-gb-AZN">
                                 <rect key="frame" x="20" y="259" width="52" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's best:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SB6-DU-Hxh">
+                                <rect key="frame" x="20" y="147" width="145" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="MVl-Tn-ciF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -370,7 +373,9 @@
                             <constraint firstItem="7wh-di-GUe" firstAttribute="baseline" secondItem="mf2-dd-KNT" secondAttribute="baseline" id="0ZU-EZ-Npt"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="trailing" secondItem="DBH-bS-2QH" secondAttribute="trailing" id="AFG-We-vu2"/>
                             <constraint firstItem="7wh-di-GUe" firstAttribute="top" secondItem="DBH-bS-2QH" secondAttribute="bottom" constant="16" id="GXQ-G4-dsz"/>
+                            <constraint firstItem="SXG-gb-AZN" firstAttribute="top" secondItem="gVp-uJ-M63" secondAttribute="bottom" constant="20" id="HO0-iE-4I2"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="top" secondItem="SXG-gb-AZN" secondAttribute="bottom" constant="8" id="JId-Lt-iwh"/>
+                            <constraint firstItem="DBH-bS-2QH" firstAttribute="baseline" relation="lessThanOrEqual" secondItem="SB6-DU-Hxh" secondAttribute="baseline" id="KCZ-fE-irC"/>
                             <constraint firstItem="BWU-oG-ooR" firstAttribute="centerX" secondItem="Dht-FX-Ek1" secondAttribute="centerX" id="KWd-Ph-9g5"/>
                             <constraint firstItem="SB6-DU-Hxh" firstAttribute="leading" secondItem="mf2-dd-KNT" secondAttribute="leading" id="KgI-PN-Tar"/>
                             <constraint firstItem="YnM-Nk-VDH" firstAttribute="top" secondItem="xrr-8Q-fa3" secondAttribute="bottom" constant="21" id="MFN-Oi-IBS"/>
@@ -380,29 +385,49 @@
                             <constraint firstItem="YnM-Nk-VDH" firstAttribute="centerX" secondItem="Dcx-CA-Apn" secondAttribute="centerX" id="OgE-py-Izj"/>
                             <constraint firstItem="gVp-uJ-M63" firstAttribute="baseline" secondItem="IeD-pu-Zlv" secondAttribute="baseline" id="Pce-0f-Nh0"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="top" secondItem="Dcx-CA-Apn" secondAttribute="top" constant="279" id="Qrw-MH-SWC"/>
+                            <constraint firstItem="gVp-uJ-M63" firstAttribute="top" secondItem="mf2-dd-KNT" secondAttribute="bottom" constant="13" id="SDS-0j-g3s"/>
                             <constraint firstItem="SXG-gb-AZN" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leading" constant="158" id="UHz-gt-cAr"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="trailing" secondItem="7wh-di-GUe" secondAttribute="trailing" id="VQC-g7-eOU"/>
                             <constraint firstItem="gVp-uJ-M63" firstAttribute="leading" secondItem="xrr-8Q-fa3" secondAttribute="leading" id="WH3-nX-Y6S"/>
                             <constraint firstItem="BWU-oG-ooR" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leading" id="ZDP-kZ-lSI"/>
+                            <constraint firstItem="SB6-DU-Hxh" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leadingMargin" id="ZyE-WG-Uw5"/>
                             <constraint firstItem="BWU-oG-ooR" firstAttribute="top" secondItem="jmM-WX-P3v" secondAttribute="bottom" constant="35" id="c0r-8K-Tu6"/>
                             <constraint firstItem="Dht-FX-Ek1" firstAttribute="top" secondItem="jmM-WX-P3v" secondAttribute="bottom" id="cIu-en-L0t"/>
                             <constraint firstItem="IeD-pu-Zlv" firstAttribute="top" secondItem="7wh-di-GUe" secondAttribute="bottom" constant="13" id="cLe-yH-7v2"/>
                             <constraint firstItem="SB6-DU-Hxh" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leading" constant="150" id="d37-3Y-rqz"/>
                             <constraint firstItem="SB6-DU-Hxh" firstAttribute="baseline" secondItem="DBH-bS-2QH" secondAttribute="baseline" id="dT6-gq-xMQ"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="trailing" secondItem="IeD-pu-Zlv" secondAttribute="trailing" id="dor-33-avn"/>
+                            <constraint firstItem="DBH-bS-2QH" firstAttribute="trailing" secondItem="Dcx-CA-Apn" secondAttribute="trailingMargin" id="dxr-Ic-MFN"/>
+                            <constraint firstItem="IeD-pu-Zlv" firstAttribute="trailing" secondItem="Dcx-CA-Apn" secondAttribute="trailingMargin" id="g2p-Yi-EjD"/>
+                            <constraint firstItem="DBH-bS-2QH" firstAttribute="baseline" secondItem="SB6-DU-Hxh" secondAttribute="baseline" id="hTc-N8-qZi"/>
+                            <constraint firstItem="gVp-uJ-M63" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leadingMargin" id="hqv-f8-VxK"/>
                             <constraint firstItem="Dht-FX-Ek1" firstAttribute="centerX" secondItem="Dcx-CA-Apn" secondAttribute="centerX" id="l6D-Ww-Zhh"/>
+                            <constraint firstItem="mf2-dd-KNT" firstAttribute="leading" secondItem="Dcx-CA-Apn" secondAttribute="leadingMargin" id="lDn-Li-btr"/>
                             <constraint firstItem="SXG-gb-AZN" firstAttribute="leading" secondItem="gVp-uJ-M63" secondAttribute="leading" id="sos-Nz-Gr4"/>
+                            <constraint firstItem="7wh-di-GUe" firstAttribute="trailing" secondItem="Dcx-CA-Apn" secondAttribute="trailingMargin" id="wsA-6h-3sW"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="centerX" secondItem="Dcx-CA-Apn" secondAttribute="centerX" id="yy4-91-Unr"/>
                             <constraint firstItem="xrr-8Q-fa3" firstAttribute="leading" secondItem="SXG-gb-AZN" secondAttribute="leading" constant="-19" id="zUZ-ye-C6D"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="KgI-PN-Tar"/>
+                                <exclude reference="Oeg-GP-f8w"/>
                                 <exclude reference="d37-3Y-rqz"/>
+                                <exclude reference="dT6-gq-xMQ"/>
+                                <exclude reference="Pce-0f-Nh0"/>
                                 <exclude reference="UHz-gt-cAr"/>
                                 <exclude reference="zUZ-ye-C6D"/>
+                                <exclude reference="KCZ-fE-irC"/>
+                                <exclude reference="0ZU-EZ-Npt"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="xrr-8Q-fa3" id="Gpq-18-U02"/>
+                        <outlet property="daysbestLabel" destination="DBH-bS-2QH" id="TF3-OQ-1ul"/>
+                        <outlet property="monthsbestLabel" destination="IeD-pu-Zlv" id="OsO-dd-zhD"/>
+                        <outlet property="weeksbestLabel" destination="7wh-di-GUe" id="Y5L-9q-rf2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnw-oN-WMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -594,6 +619,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="timeitupLogo500" width="500" height="500"/>
+        <image name="app_icon" width="400" height="400"/>
     </resources>
 </document>
