@@ -23,6 +23,7 @@ class HallOfTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let gameInstance = GameInstance()
+        gameInstance.updateLocalData()
         
         daysbestLabel.text = "\(gameInstance.dayliHighScore[0]) / \(gameInstance.dayliHighScore[2])"
         
@@ -48,7 +49,7 @@ class HallOfTimeViewController: UIViewController {
         
     }
     
-    let xvalues : [String]! = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    let xvalues : [String]! = ["a", "b", "c", "d", "e", "f", "g"]
 
     func setChart(dataPoints: [String], values: [Int]) {
         chartView.noDataText = "You need to provide data for the chart"

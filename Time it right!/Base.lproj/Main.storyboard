@@ -112,7 +112,7 @@
                         <viewControllerLayoutGuide type="top" id="Yfa-gg-qIo"/>
                         <viewControllerLayoutGuide type="bottom" id="7X5-AY-YAP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tGb-6q-qWh">
+                    <view key="view" contentMode="scaleToFill" id="tGb-6q-qWh" customClass="TIviewController" customModule="Time_it_right_" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -274,7 +274,7 @@
                         <viewControllerLayoutGuide type="top" id="jmM-WX-P3v"/>
                         <viewControllerLayoutGuide type="bottom" id="k7E-0k-aIR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dcx-CA-Apn">
+                    <view key="view" contentMode="scaleToFill" id="Dcx-CA-Apn" customClass="TIviewController" customModule="Time_it_right_" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -316,7 +316,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-8Q-fa3" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="279" width="560" height="223"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12941176470588234" green="0.38823529411764707" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="qDc-Mq-Xmj"/>
                                 </constraints>
@@ -441,7 +441,7 @@
                         <viewControllerLayoutGuide type="top" id="XCi-iW-tfg"/>
                         <viewControllerLayoutGuide type="bottom" id="vth-Mg-F9b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="idscoreViewController" id="SMH-kl-R1r">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="idscoreViewController" id="SMH-kl-R1r" customClass="TIviewController" customModule="Time_it_right_" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

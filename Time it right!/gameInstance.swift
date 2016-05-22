@@ -18,8 +18,17 @@ class GameInstance {
     var gameOverFlag = false
     var gameInstanceSumScore: Int
     var levelData : [Int]
+    
+    var levelSumScore = 0
     //var milislabel :UILabel
 
+    var monthlyHighScore    = [0 ,0 ,0]
+    
+    var dayliHighScore      = [0 ,0 ,0]
+    
+    var weeklyHighscore     = [0 ,0 ,0]
+    
+    var latestScores        = [Int]()
     
     var gameData = GameData()
     
@@ -30,14 +39,16 @@ class GameInstance {
 
         //self.milislabel = milislabel
         gameData.loadHighscores()
+        self.dayliHighScore = gameData.dayliHighScore
+        self.weeklyHighscore = gameData.weeklyHighscore
+        self.monthlyHighScore = gameData.monthlyHighScore
+        self.latestScores = gameData.latestScores
+        
         gameData.loadGameInstanceLevel()
-        self.gameInstanceLevel = 0
-        self.gameInstanceSumScore = 0
+        self.gameInstanceLevel = gameData.gameInstanceLevel
+        self.gameInstanceSumScore = gameData.gameLevelSumScoreData
         self.levelData = [0, 0, 0]
         
-        // load level data
-//        self.increaseGameInstanceLevel()
-//        levelData = gameData.levelTimes[(self.gameInstanceLevel-1) ]
     }
     
     // stop timer, save the score to NSUser
@@ -99,7 +110,7 @@ class GameInstance {
             var calculation = levelData[0] - levelData[1]
             if calculation > 0 && calculation < 100 {
                 calculation = levelData[0] - levelData[1]
-                gameInstanceSumScore += 100 - calculation
+                self.gameInstanceSumScore += 100 - calculation
                 // write to the label
             }
             
@@ -230,7 +241,7 @@ class GameInstance {
             timeSeconds = "\(miliseconds/100)"
             if (miliseconds%100) == 0 {
                 timeMilis = "00"
-            }else {
+            } else {
                 timeMilis = "\(miliseconds%100)"
             }
         }
@@ -246,14 +257,41 @@ class GameInstance {
         }
     }
     
+    func updateLocalData () {
+        
+        gameData.loadGameInstanceData()
+        self.gameInstanceSumScore = gameData.gameLevelSumScoreData
+        self.gameOverFlag = gameData.gameOverFlag
+        self.levelSumScore = gameData.gameLevelSumScoreData
+        
+        gameData.loadHighscores()
+        self.dayliHighScore = gameData.dayliHighScore
+        self.weeklyHighscore = gameData.weeklyHighscore
+        self.monthlyHighScore = gameData.monthlyHighScore
+        self.latestScores = gameData.latestScores
+        
+        gameData.loadGameInstanceLevel()
+        self.gameInstanceLevel = gameData.gameInstanceLevel
+    }
+    
+    
     func gameBegin(){
         self.increaseGameInstanceLevel()
         levelData = gameData.levelTimes[(self.gameInstanceLevel-1) ]
     }
     
     func gameCleanup () {
-        gameData.updateHighscoresInNSUser()
         
+        
+        updateLocalData()
+        
+        gameData.updateHighscoresInNSUser( self.dayliHighScore,
+                                           weekHS: self.weeklyHighscore,
+                                           monthHS: self.monthlyHighScore,
+                                           latestScore : self.gameInstanceSumScore )
+        
+        print("Controller: latestScores = \(self.latestScores)")
+        print("Controller: sum score = \(self.gameInstanceSumScore)")
         //TODO add additional cleanup
     }
     

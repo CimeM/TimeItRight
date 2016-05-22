@@ -29,20 +29,27 @@ class GameData {
      Updates data in the NSUser space - updates highscores and dates
      Input data retrieved from class locals
      */
-    func updateHighscoresInNSUser () {
+    func updateHighscoresInNSUser (dayHS: [Int],
+                                   weekHS: [Int],
+                                   monthHS: [Int],
+                                   latestScore : Int) {
         
         
         // TODO check for dates and scores -> update or dont update
-        if gameLevelSumScoreData > 0 {
+        if latestScore > 0 {
             
-            self.latestScores.append(gameInstanceSumScoreData)
+            self.latestScores.append(latestScore)
+            print("saving latest scores: \(self.latestScores)")
             // ensure max 7 data points are saved. remove the oldest ones first
             while self.latestScores.count > 7 {
                 self.latestScores.removeAtIndex(0)
             }
         }
         
-        loadHighscores ()
+        
+        print("saving latest scores: \(self.latestScores)")
+        
+        
         
         //compare and rewrite weekly highscores if neccessary
         if gameInstanceSumScoreData >= self.monthlyHighScore[0] {
@@ -84,20 +91,26 @@ class GameData {
             }
         }
         
-        NSUserDefaults.standardUserDefaults().setObject(monthlyHighScore,
+        print("saving latest scores: \(self.latestScores)")
+        
+        
+        //saveHighscores ()
+        
+        NSUserDefaults.standardUserDefaults().setObject(monthHS,
                                                         forKey: "HighscoreOfTheMonth")
-        NSUserDefaults.standardUserDefaults().setObject(weeklyHighscore,
+        NSUserDefaults.standardUserDefaults().setObject(weekHS,
                                                         forKey: "HighscoreOfTheWeek")
-        NSUserDefaults.standardUserDefaults().setObject(dayliHighScore,
+        NSUserDefaults.standardUserDefaults().setObject(dayHS,
                                                         forKey: "HighscoreOfTheDay")
-        NSUserDefaults.standardUserDefaults().setObject(latestScores,
+        print("saving latest scores: \(self.latestScores)")
+        NSUserDefaults.standardUserDefaults().setObject(self.latestScores,
                                                         forKey: "LatestScores")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     
     /**
-     Loads highscore data to NSUser Space
+     Loads highscore data from NSUser Space to local varibles
      variables: monthlyHighScore : [Int], dayliHighScore : [Int], weeklyHighscore : [Int]
      */
     func loadHighscores (){
@@ -123,6 +136,7 @@ class GameData {
                               gameInstanceLevel : Int){
         
         print("saving" + "\(gameOverFlag)")
+        
         
         //load game instance - game sum score - this is not game level sum score
         self.gameInstanceSumScoreData = loadIntFormNSUserDefaults("GameInstanceSumScoreData")
@@ -209,13 +223,13 @@ class GameData {
      */
     func loadIntArrFormNSUserDefaults(key : String) -> [Int] {
         var result = [0,0,0]
-//        if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
-//            result =  (NSUserDefaults.standardUserDefaults().objectForKey(key) as? [Int])!
-//        }
-//        else {
-//            print("Error handler - value not saved in NSUser Space. Replaced by [0,0,0]")
-//            return result
-//        }
+        if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
+            result = (NSUserDefaults.standardUserDefaults().objectForKey(key) as? [Int])!
+        }
+        else {
+            print("Error handler - value not saved in NSUser Space. Replaced by [0,0,0]")
+            return result
+        }
         return result
         
     }

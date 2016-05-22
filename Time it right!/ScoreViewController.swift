@@ -23,6 +23,12 @@ class ScoreViewController: UIViewController {
     
     @IBOutlet var contiueButton: TINavButton!
     
+    var monthlyHighScore    = [0 ,0 ,0]
+    
+    var dayliHighScore      = [0 ,0 ,0]
+    
+    var weeklyHighscore     = [0 ,0 ,0]
+    
     var nextLevelTimer = 5
     
     var timer = NSTimer()
@@ -73,7 +79,7 @@ class ScoreViewController: UIViewController {
     }
     
     @IBAction func menuButton(sender: AnyObject) {
-        
+        timer.invalidate()
         gameInstance.gameCleanup()
         
         //transition to main menu
@@ -84,6 +90,10 @@ class ScoreViewController: UIViewController {
         
         self.transitionToGame()
         
+    }
+    
+    func loadHighscores () {
+        gameData.loadHighscores()
     }
     
     func transitionToGame() {
