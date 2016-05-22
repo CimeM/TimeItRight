@@ -40,7 +40,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzb-7C-auF" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
-                                <rect key="frame" x="149" y="380" width="300" height="50"/>
+                                <rect key="frame" x="149" y="384" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="b7Q-k0-1rH"/>
                                     <constraint firstAttribute="height" constant="50" id="fl5-4l-Ll4"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugi-vT-uXe" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
-                                <rect key="frame" x="149" y="472" width="300" height="50"/>
+                                <rect key="frame" x="149" y="476" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="TMf-Gk-AbE"/>
                                     <constraint firstAttribute="width" constant="300" id="gl4-dm-wC9"/>
@@ -65,7 +65,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMx-mL-Cdd" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
-                                <rect key="frame" x="149" y="313" width="300" height="50"/>
+                                <rect key="frame" x="149" y="317" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="MmC-qa-OtI"/>
                                     <constraint firstAttribute="height" constant="50" id="pIJ-0J-t5O"/>
@@ -80,6 +80,7 @@
                         <constraints>
                             <constraint firstItem="Ugi-vT-uXe" firstAttribute="top" secondItem="Nzb-7C-auF" secondAttribute="bottom" constant="42" id="55y-7f-8yE"/>
                             <constraint firstItem="Nzb-7C-auF" firstAttribute="leading" secondItem="Ugi-vT-uXe" secondAttribute="leading" id="Ce3-yK-UZx"/>
+                            <constraint firstItem="aMx-mL-Cdd" firstAttribute="top" secondItem="sUj-6h-ZWW" secondAttribute="bottom" constant="17" id="Eje-Em-EOe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sUj-6h-ZWW" secondAttribute="bottom" constant="300" id="G6H-7r-3z8"/>
                             <constraint firstItem="Xou-Ya-BM8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="IZ2-i7-9Ph"/>
                             <constraint firstItem="Xou-Ya-BM8" firstAttribute="centerX" secondItem="sUj-6h-ZWW" secondAttribute="centerX" id="Nr5-6m-wmF"/>
@@ -89,7 +90,15 @@
                             <constraint firstItem="Nzb-7C-auF" firstAttribute="leading" secondItem="aMx-mL-Cdd" secondAttribute="leading" id="lFC-Kq-drF"/>
                             <constraint firstItem="sUj-6h-ZWW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mec-zp-3hL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jEA-Zd-iXx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="proGameButton" destination="aMx-mL-Cdd" id="Dqz-SB-2dS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

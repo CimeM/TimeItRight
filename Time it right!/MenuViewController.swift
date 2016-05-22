@@ -10,9 +10,13 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet var proGameButton: TINavButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        proGameButton.alpha = 0.6
         
         let gameData = GameData()
         gameData.resetInstanceData()
