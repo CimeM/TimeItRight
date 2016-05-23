@@ -72,7 +72,6 @@ class GameInstance {
         if levelData[0] < levelData[1]
         {
             self.gameOverFlag = true
-            print(self.gameOverFlag)
             gameOver()
             //return
         }
@@ -148,7 +147,6 @@ class GameInstance {
         self.levelData = gameData.levelTimes[self.gameInstanceLevel-1]
         //save level to NS
         gameData.saveGameInstanceLevel(self.gameInstanceLevel)
-        print(self.gameInstanceLevel)
     }
     
     func getCurrentLevel() -> Int {
@@ -259,8 +257,6 @@ class GameInstance {
     
     func updateLocalData () {
         
-        print("before updating :monthly highscore: \(self.monthlyHighScore)")
-        
         gameData.loadGameInstanceData()
         self.gameInstanceSumScore = gameData.gameInstanceSumScoreData
         self.gameOverFlag = gameData.gameOverFlag
@@ -275,7 +271,6 @@ class GameInstance {
         gameData.loadGameInstanceLevel()
         self.gameInstanceLevel = gameData.gameInstanceLevel
         
-        print("after updating: monthly highscore: \(self.monthlyHighScore)")
     }
     
     
@@ -293,10 +288,11 @@ class GameInstance {
                                            weekHS: self.weeklyHighscore,
                                            monthHS: self.monthlyHighScore,
                                            latestScore : self.gameInstanceSumScore )
-        
-        print("Controller: latestScores = \(self.latestScores)")
-        print("Controller: sum score = \(self.gameInstanceSumScore)")
         //TODO add additional cleanup
+    }
+    
+    func resetHighscores() {
+        gameData.resetHighscoresinNSUserSpace()
     }
     
 }

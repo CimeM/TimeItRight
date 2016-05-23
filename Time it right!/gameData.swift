@@ -34,19 +34,19 @@ class GameData {
                                    monthHS: [Int],
                                    latestScore : Int) {
         
+        loadHighscores ()
         
-        // TODO check for dates and scores -> update or dont update
         if latestScore > 0 {
             
-            self.latestScores.append(latestScore)
             
+            self.latestScores.append(latestScore)
             // ensure max 7 data points are saved. remove the oldest ones first
             while self.latestScores.count > 7 {
                 self.latestScores.removeAtIndex(0)
             }
         }
         
-        loadHighscores ()
+        
         
         //compare and rewrite weekly highscores if neccessary
         if latestScore >= self.monthlyHighScore[0] ||
@@ -86,7 +86,6 @@ class GameData {
             
         }
         
-        print("monthly highscore: \(self.monthlyHighScore)")
         
         NSUserDefaults.standardUserDefaults().setObject(self.monthlyHighScore,
                                                         forKey: "HighscoreOfTheMonth")
@@ -96,6 +95,7 @@ class GameData {
                                                         forKey: "HighscoreOfTheDay")
         NSUserDefaults.standardUserDefaults().setObject(self.latestScores,
                                                         forKey: "LatestScores")
+        
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
@@ -172,6 +172,20 @@ class GameData {
         
         NSUserDefaults.standardUserDefaults().synchronize()
     }
+    
+    func resetHighscoresinNSUserSpace () {
+        
+        let zero = [0,0,0]
+        NSUserDefaults.standardUserDefaults().setObject(zero,
+                                                        forKey: "HighscoreOfTheMonth")
+        NSUserDefaults.standardUserDefaults().setObject(zero,
+                                                        forKey: "HighscoreOfTheWeek")
+        NSUserDefaults.standardUserDefaults().setObject(zero,
+                                                        forKey: "HighscoreOfTheDay")
+        NSUserDefaults.standardUserDefaults().setObject(zero,
+                                                        forKey: "LatestScores")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 
     
     /**
@@ -212,8 +226,6 @@ class GameData {
         var result = [0,0,0]
         if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
             result = (NSUserDefaults.standardUserDefaults().objectForKey(key) as? [Int])!
-            
-            print("reading: \(key) data: \(result)")
             return result
             
             

@@ -56,6 +56,9 @@
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="12q-2T-gO3" kind="show" id="Y0L-CP-8AB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMx-mL-Cdd" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
                                 <rect key="frame" x="149" y="317" width="300" height="50"/>
@@ -102,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="417"/>
+            <point key="canvasLocation" x="-528" y="417"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Nw6-jx-Y6X">
@@ -264,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDA-Kz-Cgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="1133"/>
+            <point key="canvasLocation" x="-528" y="1184"/>
         </scene>
         <!--Hall Of Time View Controller-->
         <scene sceneID="bi6-WP-uVD">
@@ -431,7 +434,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnw-oN-WMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="417"/>
+            <point key="canvasLocation" x="157" y="417"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="so0-7D-UM0">
+            <objects>
+                <viewController id="12q-2T-gO3" customClass="SettingsViewController" customModule="Time_it_right_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ha5-rF-WdO"/>
+                        <viewControllerLayoutGuide type="bottom" id="79O-lg-yqh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HeW-QE-VM3" customClass="TIviewController" customModule="Time_it_right_" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4D-Fc-LbQ">
+                                <rect key="frame" x="0.0" y="52" width="600" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egR-xY-yar">
+                                        <rect key="frame" x="230" y="8" width="141" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="egR-xY-yar" firstAttribute="centerY" secondItem="S4D-Fc-LbQ" secondAttribute="centerY" id="0NA-rM-geS"/>
+                                    <constraint firstItem="egR-xY-yar" firstAttribute="centerX" secondItem="S4D-Fc-LbQ" secondAttribute="centerX" id="Pf4-di-5Rq"/>
+                                    <constraint firstAttribute="height" constant="65" id="l7I-7M-aJE"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset scores:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-VU-WgZ">
+                                <rect key="frame" x="20" y="144" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dan-hq-552">
+                                <rect key="frame" x="545" y="137" width="35" height="35"/>
+                                <state key="normal" title="reset">
+                                    <color key="titleColor" red="0.91171480429292928" green="0.88349876139380834" blue="0.90438061992759244" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="12q-2T-gO3" eventType="touchUpInside" id="Bag-Lc-RXh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63e-mA-QeH" customClass="TINavButton" customModule="Time_it_right_" customModuleProvider="target">
+                                <rect key="frame" x="150" y="486" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6l3-7J-qtg"/>
+                                    <constraint firstAttribute="height" constant="50" id="iwZ-Fn-F4O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Main Menu">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButton:" destination="12q-2T-gO3" eventType="touchUpInside" id="vvT-yH-adN"/>
+                                    <action selector="menuButtonAction:" destination="BLx-CC-3rn" eventType="touchUpInside" id="wzW-kP-fe6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S4D-Fc-LbQ" firstAttribute="centerX" secondItem="63e-mA-QeH" secondAttribute="centerX" id="A54-lQ-IJN"/>
+                            <constraint firstItem="79O-lg-yqh" firstAttribute="top" secondItem="Dan-hq-552" secondAttribute="bottom" constant="428" id="CAv-Se-P2J"/>
+                            <constraint firstItem="63e-mA-QeH" firstAttribute="top" secondItem="Ha5-rF-WdO" secondAttribute="bottom" constant="466" id="J9R-Ef-by6"/>
+                            <constraint firstItem="S4D-Fc-LbQ" firstAttribute="top" secondItem="Ha5-rF-WdO" secondAttribute="bottom" constant="32" id="Mq7-78-1hK"/>
+                            <constraint firstItem="S4D-Fc-LbQ" firstAttribute="leading" secondItem="HeW-QE-VM3" secondAttribute="leading" id="VVK-zL-9yA"/>
+                            <constraint firstItem="S4D-Fc-LbQ" firstAttribute="centerX" secondItem="HeW-QE-VM3" secondAttribute="centerX" id="buD-qE-d9N"/>
+                            <constraint firstItem="Dan-hq-552" firstAttribute="top" secondItem="S4D-Fc-LbQ" secondAttribute="bottom" constant="20" id="dEI-BK-LSO"/>
+                            <constraint firstItem="Dan-hq-552" firstAttribute="centerY" secondItem="uRc-VU-WgZ" secondAttribute="centerY" id="pJa-HB-39i"/>
+                            <constraint firstItem="63e-mA-QeH" firstAttribute="centerX" secondItem="HeW-QE-VM3" secondAttribute="centerX" id="q5v-e3-3AX"/>
+                            <constraint firstItem="uRc-VU-WgZ" firstAttribute="leading" secondItem="HeW-QE-VM3" secondAttribute="leadingMargin" id="stB-UY-tqM"/>
+                            <constraint firstItem="Dan-hq-552" firstAttribute="trailing" secondItem="HeW-QE-VM3" secondAttribute="trailingMargin" id="tG2-uR-lrk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KG5-Z4-9W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="417"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="USI-Pf-IxD">
@@ -615,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOZ-Dv-Ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="1133"/>
+            <point key="canvasLocation" x="157" y="1192"/>
         </scene>
     </scenes>
     <resources>

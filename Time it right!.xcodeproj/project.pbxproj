@@ -11,6 +11,7 @@
 		5B2B51491CEB40B200D608AB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2B51411CEB3FEA00D608AB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514D1CEB433300D608AB /* gameInstance.swift */; };
 		5B2B51501CEB55D700D608AB /* gameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514F1CEB55D700D608AB /* gameData.swift */; };
+		5B76888F1CF30565007386F9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76888E1CF30565007386F9 /* SettingsViewController.swift */; };
 		5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */; };
 		5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */; };
 		5BC2B3101CEA04DF002FD33A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B30E1CEA04DF002FD33A /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5B2B514D1CEB433300D608AB /* gameInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameInstance.swift; sourceTree = "<group>"; };
 		5B2B514F1CEB55D700D608AB /* gameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData.swift; sourceTree = "<group>"; };
+		5B76888E1CF30565007386F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5BC2B3071CEA04DF002FD33A /* Time it right!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time it right!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				5BFA61581CECDA820024C617 /* GameViewController.swift */,
 				5BFA615A1CED037F0024C617 /* ScoreViewController.swift */,
 				5BCBA2FA1CF1E2C9005501BA /* HallOfTimeViewController.swift */,
+				5B76888E1CF30565007386F9 /* SettingsViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */,
 				5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */,
 				5BFA61591CECDA820024C617 /* GameViewController.swift in Sources */,
+				5B76888F1CF30565007386F9 /* SettingsViewController.swift in Sources */,
 				5BC2B3131CEA04DF002FD33A /* Time_it_right_.xcdatamodeld in Sources */,
 				5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */,
 				5BCBA2FB1CF1E2C9005501BA /* HallOfTimeViewController.swift in Sources */,
