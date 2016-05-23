@@ -39,70 +39,61 @@ class GameData {
         if latestScore > 0 {
             
             self.latestScores.append(latestScore)
-            print("saving latest scores: \(self.latestScores)")
+            
             // ensure max 7 data points are saved. remove the oldest ones first
             while self.latestScores.count > 7 {
                 self.latestScores.removeAtIndex(0)
             }
         }
         
-        
-        print("saving latest scores: \(self.latestScores)")
-        
-        
+        loadHighscores ()
         
         //compare and rewrite weekly highscores if neccessary
-        if gameInstanceSumScoreData >= self.monthlyHighScore[0] {
+        if latestScore >= self.monthlyHighScore[0] ||
+        self.monthlyHighScore[1] != getCalendarComponent().month{
             
-            if self.monthlyHighScore[1] != getCalendarComponent().month {
-                
-                //user reached the current highscore or increased it
-                // TODO: motivational message: you reached monthly highscore
-                self.monthlyHighScore = [self.gameInstanceSumScoreData,
-                                         getCalendarComponent().month,
-                                         self.gameInstanceLevel]
-            }
+            self.monthlyHighScore = [latestScore,
+                                     getCalendarComponent().month,
+                                     self.gameInstanceLevel]
+            
+            //user reached the current highscore or increased it
+            // TODO: motivational message: you reached monthly highscore
+            
+            
         }
+
         
         //compare and rewrite monthly highscores if neccessary
         //TODO: .week option is not yet supported - future upates
-        if gameInstanceSumScoreData >= self.weeklyHighscore[0] {
+        if latestScore >= self.weeklyHighscore[0] || self.weeklyHighscore[1] != getCalendarComponent().day {
             
-            if self.weeklyHighscore[1] != getCalendarComponent().day {
-                
-                //user reached the current highscore or increased it
-                // TODO: motivational message: you reached weekly highscore
-                self.weeklyHighscore = [self.gameInstanceSumScoreData,
-                                         getCalendarComponent().day,
-                                         self.gameInstanceLevel]
-            }
+            //user reached the current highscore or increased it
+            // TODO: motivational message: you reached weekly highscore
+            self.weeklyHighscore = [latestScore,
+                                    getCalendarComponent().day,
+                                    self.gameInstanceLevel]
+            
         }
         
         //compare and rewrite daily highscores if neccessary
-        if gameInstanceSumScoreData >= self.weeklyHighscore[0] {
+        if latestScore >= self.dayliHighScore[0] || self.dayliHighScore[1] != getCalendarComponent().day {
             
-            if self.dayliHighScore[1] != getCalendarComponent().day {
-                
-                //user reached the current highscore or increased it
-                //TODO: motivational message: you reached daily highscore
-                self.dayliHighScore = [self.gameInstanceSumScoreData,
-                                        getCalendarComponent().day,
-                                        self.gameInstanceLevel]
-            }
+            //user reached the current highscore or increased it
+            //TODO: motivational message: you reached daily highscore
+            self.dayliHighScore = [latestScore,
+                                   getCalendarComponent().day,
+                                   self.gameInstanceLevel]
+            
         }
         
-        print("saving latest scores: \(self.latestScores)")
+        print("monthly highscore: \(self.monthlyHighScore)")
         
-        
-        //saveHighscores ()
-        
-        NSUserDefaults.standardUserDefaults().setObject(monthHS,
+        NSUserDefaults.standardUserDefaults().setObject(self.monthlyHighScore,
                                                         forKey: "HighscoreOfTheMonth")
-        NSUserDefaults.standardUserDefaults().setObject(weekHS,
+        NSUserDefaults.standardUserDefaults().setObject(self.weeklyHighscore,
                                                         forKey: "HighscoreOfTheWeek")
-        NSUserDefaults.standardUserDefaults().setObject(dayHS,
+        NSUserDefaults.standardUserDefaults().setObject(self.dayliHighScore,
                                                         forKey: "HighscoreOfTheDay")
-        print("saving latest scores: \(self.latestScores)")
         NSUserDefaults.standardUserDefaults().setObject(self.latestScores,
                                                         forKey: "LatestScores")
         NSUserDefaults.standardUserDefaults().synchronize()
@@ -135,8 +126,6 @@ class GameData {
     func saveGameLevelInstanceData(gameOverFlag: Bool, gameLevelSumScoreData : Int,
                               gameInstanceLevel : Int){
         
-        print("saving" + "\(gameOverFlag)")
-        
         
         //load game instance - game sum score - this is not game level sum score
         self.gameInstanceSumScoreData = loadIntFormNSUserDefaults("GameInstanceSumScoreData")
@@ -163,10 +152,8 @@ class GameData {
         self.gameLevelSumScoreData = loadIntFormNSUserDefaults("GameLevelSumScoreData")
         
         loadGameInstanceLevel()
-
     }
     
-       
     /**
      Reset all game instance scores
      This should happen every time user start a new game.
@@ -225,12 +212,16 @@ class GameData {
         var result = [0,0,0]
         if NSUserDefaults.standardUserDefaults().objectForKey(key) != nil {
             result = (NSUserDefaults.standardUserDefaults().objectForKey(key) as? [Int])!
+            
+            print("reading: \(key) data: \(result)")
+            return result
+            
+            
         }
         else {
             print("Error handler - value not saved in NSUser Space. Replaced by [0,0,0]")
             return result
         }
-        return result
         
     }
     

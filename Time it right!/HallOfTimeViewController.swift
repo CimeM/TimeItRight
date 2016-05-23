@@ -29,7 +29,7 @@ class HallOfTimeViewController: UIViewController {
         
         weeksbestLabel.text = "\( gameInstance.weeklyHighscore[0] ) / \( gameInstance.weeklyHighscore[2] )"
         
-        weeksbestLabel.text = "\( gameInstance.monthlyHighScore[0] ) / \( gameInstance.monthlyHighScore[2] )"
+        monthsbestLabel.text = "\( gameInstance.monthlyHighScore[0] ) / \( gameInstance.monthlyHighScore[2] )"
         
         // show charts
         chartView.noDataText = "No scores are yet saved to display."
@@ -68,7 +68,6 @@ class HallOfTimeViewController: UIViewController {
         //chartDataSet.drawValuesEnabled = false // to hide top values
         chartDataSet.valueColors = [UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
         //barChartView.xAxis.axisMinValue = 0
-        
         
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawLabelsEnabled = false

@@ -119,7 +119,6 @@ class ScoreViewController: UIViewController {
      */
     func vieWcontrollerSegue (ViewControllerId: String) {
         
-        
         switch ViewControllerId {
         case "idGameViewController":
             let gameVC = self.storyboard?.instantiateViewControllerWithIdentifier(ViewControllerId) as! GameViewController

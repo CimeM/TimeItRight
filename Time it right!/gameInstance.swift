@@ -259,8 +259,10 @@ class GameInstance {
     
     func updateLocalData () {
         
+        print("before updating :monthly highscore: \(self.monthlyHighScore)")
+        
         gameData.loadGameInstanceData()
-        self.gameInstanceSumScore = gameData.gameLevelSumScoreData
+        self.gameInstanceSumScore = gameData.gameInstanceSumScoreData
         self.gameOverFlag = gameData.gameOverFlag
         self.levelSumScore = gameData.gameLevelSumScoreData
         
@@ -272,6 +274,8 @@ class GameInstance {
         
         gameData.loadGameInstanceLevel()
         self.gameInstanceLevel = gameData.gameInstanceLevel
+        
+        print("after updating: monthly highscore: \(self.monthlyHighScore)")
     }
     
     
