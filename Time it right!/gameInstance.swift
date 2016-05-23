@@ -197,62 +197,31 @@ class GameInstance {
      */
     func timeConverter(miliseconds : Int, milis : Bool)-> String {
         
-        var timeMilis: String
-        var timeSeconds: String
+        
+        var result : Int
         
         if miliseconds == 0 {
             return ""
         }
         
-        // formating timer text
-        //TODO cleanup + bugfix
-        if miliseconds < 10 {
-            timeSeconds = "00"
-            timeMilis = "0\(miliseconds)"
-        }
+        if milis { // miliseconds
             
-        else if miliseconds < 100 {
-            timeSeconds = "00"
-            timeMilis = "\(miliseconds)"
-        }
-        else if miliseconds < 1000 && timerRunning == false{
-            
-            timeSeconds = "0\(miliseconds/100)"
-            timeMilis = "\(miliseconds%100)0"
+            result = miliseconds%100
             
         }
-        else if miliseconds < 10000 && timerRunning == false{
-            timeSeconds = "\(miliseconds/100)"
-            timeMilis = "\(miliseconds%100)0"
-        }
-        else if miliseconds < 1000 {
+        else { // seconds
             
-            if (miliseconds%100) == 0 {
-                timeMilis = "00"
-            }else {
-                timeMilis = "\(miliseconds%100)"
-            }
+            result = miliseconds/100
             
-            timeSeconds = "0\(miliseconds/100)"
         }
-        else if miliseconds < 10000 {
-            timeSeconds = "\(miliseconds/100)"
-            if (miliseconds%100) == 0 {
-                timeMilis = "00"
-            } else {
-                timeMilis = "\(miliseconds%100)"
-            }
+        
+        if result < 10 {
+            return "0\(result)"
         }
         else {
-            timeSeconds = "\(miliseconds/100)"
-            timeMilis = "\(miliseconds%100)"
+            return "\(result)"
         }
-        if milis {
-            return timeMilis
-        }
-        else {
-            return timeSeconds
-        }
+        
     }
     
     func updateLocalData () {
