@@ -52,7 +52,7 @@ class GameInstance {
     }
     
     // stop timer, save the score to NSUser
-    func gameOver (){
+    func gameOver(){
         
         timerRunning = false
         timer.invalidate()
@@ -62,7 +62,7 @@ class GameInstance {
 
     }
     
-    @objc func counting () {
+    @objc func counting() {
         
         if levelData[0] < 1 {
             gameOver()
@@ -250,6 +250,8 @@ class GameInstance {
     
     func gameCleanup () {
         
+        
+        gameOver()
         
         updateLocalData()
         

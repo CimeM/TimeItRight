@@ -44,9 +44,9 @@ class HallOfTimeViewController: UIViewController {
     }
     
     @IBAction func menuButtonAction(sender: TINavButton) {
-        let menuvc = self.storyboard?.instantiateViewControllerWithIdentifier("idMenuViewController") as! MenuViewController
-        self.presentViewController(menuvc, animated: true, completion: nil)
         
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
     
     let xvalues : [String]! = ["a", "b", "c", "d", "e", "f", "g"]

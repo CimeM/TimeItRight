@@ -30,17 +30,44 @@ class GameViewController: UIViewController {
     
     var gameInstance = GameInstance()
     
+    var labelUpdatetimer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    }
+    
+    
+    override func viewDidDisappear(animated: Bool) {
+        
+        labelUpdatetimer.invalidate()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
         
         gameInstance.gameBegin()
         self.updateLables()
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameViewController.updatet0Lables), userInfo: nil, repeats: true)
+        labelUpdatetimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameViewController.updatet0Lables), userInfo: nil, repeats: true)
         
+    }
+    
+    
+    //navigation
+    
+    @IBAction func menuButton(sender: UIButton) {
+        
+        gameInstance.gameOver()
+        gameInstance.gameCleanup()
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
         
     }
 
+    
+    
     //is called every millisecond
     func updatet0Lables () {
         // load data into labels (timers)
@@ -84,8 +111,11 @@ class GameViewController: UIViewController {
         let gameContinues = gameInstance.timeButtonPressed()
         
         if gameContinues == false {
-            let scorevc = self.storyboard?.instantiateViewControllerWithIdentifier("idScoreViewController") as! ScoreViewController
-            self.presentViewController(scorevc, animated: true, completion: nil)
+            
+
+            performSegueWithIdentifier("showLevelScoreSegue", sender: sender)
+//            let scorevc = self.storyboard?.instantiateViewControllerWithIdentifier("idScoreViewController") as! ScoreViewController
+//            self.presentViewController(scorevc, animated: true, completion: nil)
         }
         else {
             self.updateLables()

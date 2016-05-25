@@ -24,9 +24,8 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func menuButton(sender: UIButton) {
-        
-        let menuVC = self.storyboard?.instantiateViewControllerWithIdentifier("idMenuViewController") as! MenuViewController
-        self.presentViewController(menuVC, animated: true, completion: nil)
+
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
 

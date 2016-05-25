@@ -40,7 +40,18 @@ class ScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //whenDisplayed()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        whenDisplayed()
+        
+    }
+    
+    func whenDisplayed() {
+    
         gameData.loadGameInstanceData()
         topScoreLabel.text = "lvl " + "\(gameData.gameInstanceLevel) "
                                     + "\(gameData.gameLevelSumScoreData)"
@@ -51,7 +62,6 @@ class ScoreViewController: UIViewController {
         totalScoreLabel.text = "\(gameData.gameInstanceSumScoreData)"
         
         // disable next level button
-        print("reading: \(gameData.gameOverFlag)")
         if gameData.gameOverFlag {
             contiueButton.enabled = false
             contiueButton.alpha = 0.5
@@ -73,6 +83,17 @@ class ScoreViewController: UIViewController {
         
     }
 
+    @IBAction func backButton(sender: UIButton) {
+        goBack()
+        
+    }
+    
+    func goBack () {
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,8 +103,10 @@ class ScoreViewController: UIViewController {
         timer.invalidate()
         gameInstance.gameCleanup()
         
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
         //transition to main menu
-        vieWcontrollerSegue("idMenuViewController")
+        //vieWcontrollerSegue("idMenuViewController")
     }
 
     @IBAction func continueButton(sender: AnyObject) {
@@ -96,12 +119,16 @@ class ScoreViewController: UIViewController {
         gameData.loadHighscores()
     }
     
+    
+    
+    
     func transitionToGame() {
         // stop timer
-        timer.invalidate()
         
+        timer.invalidate()
         // show game ViewController
-        vieWcontrollerSegue("idGameViewController")
+        self.navigationController?.popViewControllerAnimated(true)
+        //vieWcontrollerSegue("idGameViewController")
         
     }
 
