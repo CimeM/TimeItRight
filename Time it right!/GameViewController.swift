@@ -96,6 +96,9 @@ class GameViewController: UIViewController {
         if t2milisecondsLabel.text == "" {
             t2colomLabel.text = ""
         }
+        else {
+            t2colomLabel.text = ":"
+        }
         
         //show current score on the score label
         scoreLabel.text = "lvl \(gameInstance.getCurrentLevel()) \(gameInstance.getCurrentScore())"

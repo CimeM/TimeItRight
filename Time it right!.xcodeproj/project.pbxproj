@@ -11,6 +11,7 @@
 		5B2B51491CEB40B200D608AB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2B51411CEB3FEA00D608AB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514D1CEB433300D608AB /* gameInstance.swift */; };
 		5B2B51501CEB55D700D608AB /* gameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B514F1CEB55D700D608AB /* gameData.swift */; };
+		5B2D85671CF5F8B90085F6A1 /* gameData02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D85661CF5F8B90085F6A1 /* gameData02.swift */; };
 		5B76888F1CF30565007386F9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76888E1CF30565007386F9 /* SettingsViewController.swift */; };
 		5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */; };
 		5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */; };
@@ -19,9 +20,11 @@
 		5BC2B3151CEA04DF002FD33A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B3141CEA04DF002FD33A /* Assets.xcassets */; };
 		5BC2B3181CEA04DF002FD33A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC2B3161CEA04DF002FD33A /* LaunchScreen.storyboard */; };
 		5BCBA2FB1CF1E2C9005501BA /* HallOfTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCBA2FA1CF1E2C9005501BA /* HallOfTimeViewController.swift */; };
+		5BDCD2251D2F9B970009209B /* LaunchscreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCD2241D2F9B970009209B /* LaunchscreenVC.swift */; };
 		5BFA61591CECDA820024C617 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA61581CECDA820024C617 /* GameViewController.swift */; };
 		5BFA615B1CED037F0024C617 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA615A1CED037F0024C617 /* ScoreViewController.swift */; };
 		5BFF71FF1CEA4BDA004B237E /* style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF71FE1CEA4BDA004B237E /* style.swift */; };
+		7F3545EBE5035648EC82A059 /* Pods_Time_it_right_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30EB7349171D0E9B25D8541 /* Pods_Time_it_right_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,9 +80,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		037B58F07DEBDD2ADDE3B507 /* Pods-Time it right!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time it right!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time it right!/Pods-Time it right!.release.xcconfig"; sourceTree = "<group>"; };
+		287D34E82211CEB18670BA13 /* Pods-Time it right!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time it right!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time it right!/Pods-Time it right!.debug.xcconfig"; sourceTree = "<group>"; };
 		5B2B51391CEB3FEA00D608AB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5B2B514D1CEB433300D608AB /* gameInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameInstance.swift; sourceTree = "<group>"; };
 		5B2B514F1CEB55D700D608AB /* gameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData.swift; sourceTree = "<group>"; };
+		5B2D85661CF5F8B90085F6A1 /* gameData02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData02.swift; sourceTree = "<group>"; };
 		5B76888E1CF30565007386F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5BC2B3071CEA04DF002FD33A /* Time it right!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time it right!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,9 +96,12 @@
 		5BC2B3171CEA04DF002FD33A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC2B3191CEA04DF002FD33A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BCBA2FA1CF1E2C9005501BA /* HallOfTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HallOfTimeViewController.swift; sourceTree = "<group>"; };
+		5BDCD2241D2F9B970009209B /* LaunchscreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchscreenVC.swift; sourceTree = "<group>"; };
+		5BEC3F1B1D23DDF60036A78B /* Time it right!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Time it right!-Bridging-Header.h"; sourceTree = "<group>"; };
 		5BFA61581CECDA820024C617 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5BFA615A1CED037F0024C617 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		5BFF71FE1CEA4BDA004B237E /* style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = style.swift; sourceTree = "<group>"; };
+		F30EB7349171D0E9B25D8541 /* Pods_Time_it_right_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_it_right_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +110,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B2B51481CEB40B200D608AB /* Charts.framework in Frameworks */,
+				7F3545EBE5035648EC82A059 /* Pods_Time_it_right_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A33DDE4E4841427A8891501 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				287D34E82211CEB18670BA13 /* Pods-Time it right!.debug.xcconfig */,
+				037B58F07DEBDD2ADDE3B507 /* Pods-Time it right!.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5B2B513A1CEB3FEA00D608AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +142,8 @@
 			children = (
 				5BC2B3091CEA04DF002FD33A /* Time it right! */,
 				5BC2B3081CEA04DF002FD33A /* Products */,
+				3A33DDE4E4841427A8891501 /* Pods */,
+				99969537FC872DE1AE9F646A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +174,7 @@
 			children = (
 				5BC2B30A1CEA04DF002FD33A /* AppDelegate.swift */,
 				5B2B514F1CEB55D700D608AB /* gameData.swift */,
+				5B2D85661CF5F8B90085F6A1 /* gameData02.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -160,6 +182,7 @@
 		5BC2B3201CEA052C002FD33A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BDCD2241D2F9B970009209B /* LaunchscreenVC.swift */,
 				5BC2B3161CEA04DF002FD33A /* LaunchScreen.storyboard */,
 				5BC2B30C1CEA04DF002FD33A /* MenuViewController.swift */,
 				5BC2B30E1CEA04DF002FD33A /* Main.storyboard */,
@@ -168,6 +191,7 @@
 				5BFA615A1CED037F0024C617 /* ScoreViewController.swift */,
 				5BCBA2FA1CF1E2C9005501BA /* HallOfTimeViewController.swift */,
 				5B76888E1CF30565007386F9 /* SettingsViewController.swift */,
+				5BEC3F1B1D23DDF60036A78B /* Time it right!-Bridging-Header.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -188,6 +212,14 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		99969537FC872DE1AE9F646A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F30EB7349171D0E9B25D8541 /* Pods_Time_it_right_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,10 +227,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BC2B31C1CEA04DF002FD33A /* Build configuration list for PBXNativeTarget "Time it right!" */;
 			buildPhases = (
+				859812FADBAC3B85C7B6A584 /* [CP] Check Pods Manifest.lock */,
 				5BC2B3031CEA04DF002FD33A /* Sources */,
 				5BC2B3041CEA04DF002FD33A /* Frameworks */,
 				5BC2B3051CEA04DF002FD33A /* Resources */,
 				5B2B514C1CEB40B200D608AB /* Embed Frameworks */,
+				FD04FF0FB78F0F65DF3874B2 /* [CP] Embed Pods Frameworks */,
+				9651E87AD99BCFAF14B1B0D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +329,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		859812FADBAC3B85C7B6A584 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9651E87AD99BCFAF14B1B0D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Time it right!/Pods-Time it right!-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD04FF0FB78F0F65DF3874B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Time it right!/Pods-Time it right!-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5BC2B3031CEA04DF002FD33A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -302,12 +385,14 @@
 				5B2B514E1CEB433300D608AB /* gameInstance.swift in Sources */,
 				5BC2B30D1CEA04DF002FD33A /* MenuViewController.swift in Sources */,
 				5BFA61591CECDA820024C617 /* GameViewController.swift in Sources */,
+				5BDCD2251D2F9B970009209B /* LaunchscreenVC.swift in Sources */,
 				5B76888F1CF30565007386F9 /* SettingsViewController.swift in Sources */,
 				5BC2B3131CEA04DF002FD33A /* Time_it_right_.xcdatamodeld in Sources */,
 				5BC2B30B1CEA04DF002FD33A /* AppDelegate.swift in Sources */,
 				5BCBA2FB1CF1E2C9005501BA /* HallOfTimeViewController.swift in Sources */,
 				5B2B51501CEB55D700D608AB /* gameData.swift in Sources */,
 				5BFF71FF1CEA4BDA004B237E /* style.swift in Sources */,
+				5B2D85671CF5F8B90085F6A1 /* gameData02.swift in Sources */,
 				5BFA615B1CED037F0024C617 /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,27 +514,34 @@
 		};
 		5BC2B31D1CEA04DF002FD33A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 287D34E82211CEB18670BA13 /* Pods-Time it right!.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Time it right!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.martincimerman.Time-it-right-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Time it right!/Time it right!-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5BC2B31E1CEA04DF002FD33A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 037B58F07DEBDD2ADDE3B507 /* Pods-Time it right!.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Time it right!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.martincimerman.Time-it-right-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Time it right!/Time it right!-Bridging-Header.h";
 			};
 			name = Release;
 		};

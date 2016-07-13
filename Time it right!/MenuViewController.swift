@@ -8,6 +8,8 @@
 
 import UIKit
 
+import MediaPlayer
+
 class MenuViewController: UIViewController {
 
     @IBOutlet var proGameButton: TINavButton!
@@ -18,6 +20,10 @@ class MenuViewController: UIViewController {
         let gameData = GameData()
         gameData.resetInstanceData()
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        playVideo()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +36,30 @@ class MenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+//    var moviePlayer = MPMoviePlayerController?()
+//    
+//    
+//    func playVideo() {
+//        let path = NSBundle.mainBundle().pathForResource("timeItRightVideo", ofType:"m4v")
+//        let url = NSURL.fileURLWithPath(path!)
+//        moviePlayer = MPMoviePlayerController(contentURL: url)
+//        if let player = moviePlayer {
+//            player.view.frame = self.view.bounds
+//            player.controlStyle = .None
+//            player.prepareToPlay()
+//            player.scalingMode = .AspectFit
+//            self.view.addSubview(player.view)
+//        }
+//    }
+//    
+    
+    
+    
 
 
 }
