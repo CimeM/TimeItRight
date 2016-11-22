@@ -1,0 +1,20 @@
+PODS:
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
+  - Eureka (1.6.0)
+  - VideoSplashKit (1.1.0)
+
+DEPENDENCIES:
+  - Charts
+  - Eureka
+  - VideoSplashKit
+
+SPEC CHECKSUMS:
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
+  VideoSplashKit: 0aa63d0bb37c5bd357de3e6a2a13dea5acad4d66
+
+PODFILE CHECKSUM: d62f127534aae512ffc5ee8c14a94b5c00adf143
+
+COCOAPODS: 1.0.1

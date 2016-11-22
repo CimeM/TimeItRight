@@ -46,7 +46,7 @@ class SettingsViewController: FormViewController {
             +++ Section("Game settings")
             <<< ButtonRow(){
                 $0.title = "Reset Game Scores"
-                $0.onCellSelection({ _,_ in self.presentViewController(self.alert?, animated: true, completion: nil)})
+                //$0.onCellSelection({ _,_ in self.presentViewController((self.alert?)!, animated: true, completion: nil)})
             }
             +++ Section("Back to main menu")
             <<< ButtonRow(){
